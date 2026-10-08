@@ -14,7 +14,7 @@ nav{display:flex;gap:30px}nav a{font-size:12px;letter-spacing:.16em;text-transfo
 linear-gradient(115deg,rgba(0,0,0,0.95),rgba(0,0,0,0.85)),
 radial-gradient(circle at 75% 40%,#1a1a1a 0,#0a0a0a 32%,#000 70%)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 49%,rgba(0,188,212,.08) 50%,transparent 100%);mix-blend-mode:overlay;opacity:.5}
 .hero-content{position:relative;z-index:10;text-align:center}
-.hero-logo{height:90px;width:auto;display:block;margin:0 auto 18px}
+.hero-logo{height:clamp(120px,16vw,280px);width:auto;display:block;margin:0 auto 24px;max-width:clamp(200px,25vw,500px)}
 .hero h1{margin:0 0 18px;font:700 clamp(48px,8vw,92px)/1 'Bruno Ace SC',cursive;letter-spacing:-0.03em}
 .hero h1 .first{color:#fff}
 .hero h1 .second{color:var(--gray-mid)}
