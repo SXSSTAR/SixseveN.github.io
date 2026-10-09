@@ -204,13 +204,37 @@
   <a class="button" href="mailto:sixsevenbooking@gmail.com?subject=Demande%20Press%20Kit">DEMANDER LE PRESS KIT</a>
 </section>
 
-<section class="newsletter section">
+<section class="newsletter section" id="newsletter">
   <div class="section-label">NEWSLETTER</div>
   <h2>Abonnez-vous à notre Newsletter !</h2>
-  <form class="newsletter-form" action="mailto:sixsevenbooking@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Nom" placeholder="Nom + Prénom">
-    <input type="email" name="Email" placeholder="E-mail">
-    <button class="button" type="submit">S'ABONNER</button>
+  <p>Recevez les actualités et nouveautés de SixseveN.</p>
+
+  <form
+    class="newsletter-form"
+    action="https://formspree.io/f/mbgdoykq"
+    method="POST">
+
+    <input
+      type="hidden"
+      name="_subject"
+      value="Nouvelle inscription à la newsletter SixseveN">
+
+    <input
+      type="text"
+      name="name"
+      placeholder="Nom + Prénom"
+      aria-label="Nom et prénom">
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Votre adresse e-mail"
+      aria-label="Votre adresse e-mail"
+      required>
+
+    <button class="button" type="submit">
+      S'ABONNER
+    </button>
   </form>
 </section>
 </main>
