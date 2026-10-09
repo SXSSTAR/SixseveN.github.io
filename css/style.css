@@ -90,3 +90,131 @@ footer{background:#000;color:#aaa;padding:45px 6vw;display:flex;align-items:cent
   font-size: 1.3em;
   line-height: 1;
 }
+
+/* DIAPORAMA PRESSE */
+.press-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: 10px auto 0;
+  padding-bottom: 55px;
+}
+
+.press-slides {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  overflow: hidden;
+  background: #080808;
+  border: 1px solid rgba(0, 188, 212, 0.35);
+}
+
+.press-slide {
+  display: none;
+  width: 100%;
+  height: min(70vh, 650px);
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.press-slide.active {
+  display: block;
+  animation: pressFade 0.45s ease;
+}
+
+@keyframes pressFade {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+.press-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 1px solid #00bcd4;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00bcd4;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.2s;
+}
+
+.press-arrow:hover {
+  background: #00bcd4;
+  color: #000;
+}
+
+.press-prev { left: 15px; }
+.press-next { right: 15px; }
+
+.press-counter {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.press-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 55px;
+}
+
+.press-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+}
+
+.press-dot.active {
+  background: #00bcd4;
+  transform: scale(1.25);
+}
+
+@media (max-width: 600px) {
+  .press-slides {
+    min-height: 180px;
+  }
+
+  .press-slide {
+    height: 55vh;
+  }
+
+  .press-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .press-prev { left: 8px; }
+  .press-next { right: 8px; }
+
+  .press-dots {
+    gap: 7px;
+    padding-left: 0;
+    padding-right: 45px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-slide.active {
+    animation: none;
+  }
+}
