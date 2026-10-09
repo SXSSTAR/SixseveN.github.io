@@ -66,16 +66,73 @@
   </div>
 </section>
 
-<section id="photos" class="section">
+<section id="photos" class="section" aria-labelledby="photos-title">
   <div class="section-label">PHOTOS</div>
-  <h2>SixseveN en images</h2>
-  <div class="photo-grid">
-    <div class="photo-card photo-1"><span>LIVE</span></div>
-    <div class="photo-card photo-2"><span>SIXSEVEN</span></div>
-    <div class="photo-card photo-3"><span>THE BAND</span></div>
-    <div class="photo-card photo-4"><span>67 EP1</span></div>
-    <div class="photo-card photo-5"><span>ON STAGE</span></div>
-    <div class="photo-card photo-6"><span>LIVE</span></div>
+  <h2 id="photos-title">SixseveN en images</h2>
+
+  <div class="photo-slideshow" aria-label="Diaporama SixseveN">
+
+    <div class="photo-slides">
+      <div class="photo-slide active">
+        <img src="assets/photo-1.jpg"
+             alt="SixseveN en concert"
+             loading="lazy">
+        <span class="photo-caption">LIVE</span>
+      </div>
+
+      <div class="photo-slide">
+        <img src="assets/photo-2.jpg"
+             alt="SixseveN"
+             loading="lazy">
+        <span class="photo-caption">SIXSEVEN</span>
+      </div>
+
+      <div class="photo-slide">
+        <img src="assets/photo-3.jpg"
+             alt="Les membres du groupe SixseveN"
+             loading="lazy">
+        <span class="photo-caption">THE BAND</span>
+      </div>
+
+      <div class="photo-slide">
+        <img src="assets/photo-4.jpg"
+             alt="SixseveN - 67 EP1"
+             loading="lazy">
+        <span class="photo-caption">67 EP1</span>
+      </div>
+
+      <div class="photo-slide">
+        <img src="assets/photo-5.jpg"
+             alt="SixseveN sur scène"
+             loading="lazy">
+        <span class="photo-caption">ON STAGE</span>
+      </div>
+
+      <div class="photo-slide">
+        <img src="assets/photo-6.jpg"
+             alt="SixseveN en live"
+             loading="lazy">
+        <span class="photo-caption">LIVE</span>
+      </div>
+    </div>
+
+    <button class="photo-arrow photo-prev"
+            type="button"
+            aria-label="Photo précédente">❮</button>
+
+    <button class="photo-arrow photo-next"
+            type="button"
+            aria-label="Photo suivante">❯</button>
+
+    <div class="photo-dots" aria-label="Choisir une photo">
+      <button class="photo-dot active" aria-label="Photo 1" type="button"></button>
+      <button class="photo-dot" aria-label="Photo 2" type="button"></button>
+      <button class="photo-dot" aria-label="Photo 3" type="button"></button>
+      <button class="photo-dot" aria-label="Photo 4" type="button"></button>
+      <button class="photo-dot" aria-label="Photo 5" type="button"></button>
+      <button class="photo-dot" aria-label="Photo 6" type="button"></button>
+    </div>
+
   </div>
 </section>
 
