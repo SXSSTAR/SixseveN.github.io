@@ -72,3 +72,104 @@ document.querySelectorAll('.order-button').forEach((button) => {
     }
   });
 });
+
+/* DIAPORAMA DES ARTICLES DE PRESSE */
+document.querySelectorAll('.press-slideshow').forEach((slideshow) => {
+  const slides = Array.from(
+    slideshow.querySelectorAll('.press-slide')
+  );
+  const dotsContainer = slideshow.querySelector('.press-dots');
+  const counter = slideshow.querySelector('.press-counter');
+  const prevButton = slideshow.querySelector('.press-prev');
+  const nextButton = slideshow.querySelector('.press-next');
+
+  if (!slides.length || !dotsContainer) return;
+
+  let currentIndex = 0;
+  let autoplay;
+
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'press-dot';
+    dot.setAttribute('aria-label', 'Afficher l’article ' + (index + 1));
+
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      restartAutoplay();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = Array.from(
+    dotsContainer.querySelectorAll('.press-dot')
+  );
+
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+      dot.setAttribute('aria-current',
+        i === currentIndex ? 'true' : 'false');
+    });
+
+    if (counter) {
+      counter.textContent =
+        (currentIndex + 1) + ' / ' + slides.length;
+    }
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplay);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+
+    if (!reduceMotion && !document.hidden) {
+      autoplay = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 5000);
+    }
+  }
+
+  function restartAutoplay() {
+    startAutoplay();
+  }
+
+  prevButton.addEventListener('click', () => {
+    showSlide(currentIndex - 1);
+    restartAutoplay();
+  });
+
+  nextButton.addEventListener('click', () => {
+    showSlide(currentIndex + 1);
+    restartAutoplay();
+  });
+
+  slideshow.addEventListener('mouseenter', stopAutoplay);
+  slideshow.addEventListener('mouseleave', startAutoplay);
+  slideshow.addEventListener('focusin', stopAutoplay);
+  slideshow.addEventListener('focusout', startAutoplay);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  });
+
+  showSlide(0);
+  startAutoplay();
+});
