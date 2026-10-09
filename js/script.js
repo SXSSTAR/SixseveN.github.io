@@ -3,6 +3,7 @@ const nav=document.querySelector('#main-nav');
 toggle?.addEventListener('click',()=>nav.classList.toggle('open'));
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 document.querySelector('#year').textContent=new Date().getFullYear();
+// SIXSEVEN PHOTO SLIDESHOW
 document.querySelectorAll('.photo-slideshow').forEach((slideshow) => {
   const slides = [...slideshow.querySelectorAll('.photo-slide')];
   const dots = [...slideshow.querySelectorAll('.photo-dot')];
@@ -47,4 +48,27 @@ document.querySelectorAll('.photo-slideshow').forEach((slideshow) => {
   });
 
   showSlide(0);
+});
+// FORMULAIRE DE COMMANDE MUSIC & MERCH
+document.querySelectorAll('.order-button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const product = button.dataset.product;
+    const subject = document.querySelector(
+      '#contact form input[name="subject"]'
+    );
+    const message = document.querySelector(
+      '#contact form textarea[name="message"]'
+    );
+
+    if (subject) {
+      subject.value = 'Commande : ' + product;
+    }
+
+    if (message) {
+      message.value =
+        'Bonjour,\n\n' +
+        'Je souhaite commander : ' + product + '.\n\n' +
+        'Merci de me communiquer les modalités de paiement et de livraison.';
+    }
+  });
 });
