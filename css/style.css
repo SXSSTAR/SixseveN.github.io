@@ -7,8 +7,8 @@ a{color:inherit;text-decoration:none}.site-header{position:fixed;z-index:20;top:
 .brand{display:flex;align-items:center;gap:12px;font-family:'Bruno Ace SC',cursive;font-size:clamp(20px,3vw,28px);letter-spacing:-0.02em;text-transform:uppercase;font-weight:700}
 .brand-text{display:flex;align-items:baseline}
 .logo-icon{height:40px;width:auto;display:block}
-.brand-first{color:#fff;text-shadow:1px 1px 0 var(--turquoise),-1px -1px 0 var(--turquoise),1px -1px 0 var(--turquoise),-1px 1px 0 var(--turquoise)}
-.brand-second{color:var(--gray-mid);text-shadow:1px 1px 0 var(--turquoise),-1px -1px 0 var(--turquoise),1px -1px 0 var(--turquoise),-1px 1px 0 var(--turquoise)}
+.brand-first{color:#fff;text-shadow:0.3px 0.3px 0 var(--turquoise),-0.3px -0.3px 0 var(--turquoise),0.3px -0.3px 0 var(--turquoise),-0.3px 0.3px 0 var(--turquoise)}
+.brand-second{color:var(--gray-mid);text-shadow:0.3px 0.3px 0 var(--turquoise),-0.3px -0.3px 0 var(--turquoise),0.3px -0.3px 0 var(--turquoise),-0.3px 0.3px 0 var(--turquoise)}
 nav{display:flex;gap:30px}nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:.2s;color:#fff}nav a:hover{color:var(--turquoise)}.menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#fff;z-index:21}
 .hero{min-height:92vh;display:grid;place-items:center;position:relative;overflow:hidden;background:
 linear-gradient(115deg,rgba(0,0,0,0.95),rgba(0,0,0,0.85)),
