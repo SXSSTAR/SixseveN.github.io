@@ -9,6 +9,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600&family=Bruno+Ace+SC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .language-switcher {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin-left:auto;
+      margin-right:18px;
+      font-family:inherit;
+      font-size:.82rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      white-space:nowrap;
+    }
+    .lang-button {
+      border:0;
+      background:transparent;
+      color:inherit;
+      padding:4px 2px;
+      cursor:pointer;
+      font:inherit;
+      opacity:.55;
+      transition:opacity .2s, transform .2s;
+    }
+    .lang-button:hover,
+    .lang-button.active {
+      opacity:1;
+    }
+    .lang-button.active {
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+    @media (max-width:700px) {
+      .language-switcher {
+        margin-right:10px;
+        gap:4px;
+        font-size:.75rem;
+      }
+    }
+  </style>
+
 </head>
 <body>
 <header class="site-header">
@@ -16,10 +56,15 @@
     <img src="assets/logo.png" class="logo-icon">
     <span class="brand-text"><span class="brand-first"><span class="big-letter">S</span>ix</span><span class="brand-second">seve<span class="big-letter">N</span></span></span>
   </a>
-  <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+  <button class="menu-toggle" aria-label="Ouvrir le menu" data-i18n-aria="menu">☰</button>
+  <div class="language-switcher" aria-label="Language selection">
+    <button type="button" class="lang-button active" data-lang="fr" aria-pressed="true">FR</button>
+    <span>/</span>
+    <button type="button" class="lang-button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
   <nav id="main-nav">
-    <a href="#home">Home</a><a href="#videos">Videos</a><a href="#photos">Photos</a>
-    <a href="#shop">Shop</a><a href="#contact">Contact</a><a href="#presse">Presse</a>
+    <a href="#home" data-i18n="nav.home">Home</a><a href="#videos" data-i18n="nav.videos">Videos</a><a href="#photos" data-i18n="nav.photos">Photos</a>
+    <a href="#shop" data-i18n="nav.shop">Shop</a><a href="#contact" data-i18n="nav.contact">Contact</a><a href="#presse" data-i18n="nav.press">Presse</a>
   </nav>
 </header>
 
@@ -31,7 +76,7 @@
     <h1><span class="first">Six</span><span class="second">seveN</span></h1>
     <p class="eyebrow">ALTERNATIVE POP · BELGIUM</p>
     <p class="hero-sub">ELECTRO · DISCO · ROCK · FUNK</p>
-    <a class="button" href="#videos">WATCH THE VIDEOS</a>
+    <a class="button" href="#videos" data-i18n="hero.watch">WATCH THE VIDEOS</a>
     
   </div>
 </section>
@@ -41,12 +86,12 @@
   <div class="intro-grid">
     <div>
       <p class="kicker">67 EP1</p>
-      <h2>Une nouvelle dimension pour SixseveN.</h2>
+      <h2 data-i18n="intro.title">Une nouvelle dimension pour SixseveN.</h2>
     </div>
     <div class="copy">
-      <p>Après deux albums LP sortis en 2013 (<em>After the Crash</em>) et 2017 (<em>The new Horizon</em>), SixseveN revient avec un nouvel album, « 67 EP1 », le premier en version EP.</p>
-      <p>Pour ce nouvel opus, les Hannutois ont fait appel à Didier Dessers (Rapsat, Maurane, Perry Rose, Curt Close, Loop the Loop, …) pour les arrangements, le mixage et le mastering, afin de donner une dimension supplémentaire à leurs compositions.</p>
-      <p>Le style s'est orienté vers une <strong>Pop-Alternative</strong>, empreinte d'Electro, de Disco, de Rock et de Funk, tout en gardant l'unité et la signature SixseveN.</p>
+      <p data-i18n="intro.p1">Après deux albums LP sortis en 2013 (<em>After the Crash</em>) et 2017 (<em>The new Horizon</em>), SixseveN revient avec un nouvel album, « 67 EP1 », le premier en version EP.</p>
+      <p data-i18n="intro.p2">Pour ce nouvel opus, les Hannutois ont fait appel à Didier Dessers (Rapsat, Maurane, Perry Rose, Curt Close, Loop the Loop, …) pour les arrangements, le mixage et le mastering, afin de donner une dimension supplémentaire à leurs compositions.</p>
+      <p data-i18n="intro.p3">Le style s'est orienté vers une <strong>Pop-Alternative</strong>, empreinte d'Electro, de Disco, de Rock et de Funk, tout en gardant l'unité et la signature SixseveN.</p>
     </div>
   </div>
 </section>
@@ -70,7 +115,7 @@
   <div class="section-label">PHOTOS</div>
   <h2 id="photos-title">SixseveN en images</h2>
 
-  <div class="photo-slideshow" aria-label="Diaporama SixseveN">
+  <div class="photo-slideshow" aria-label="Diaporama SixseveN" data-i18n-aria="photo.slideshow">
 
     <div class="photo-slides">
       <div class="photo-slide active">
@@ -112,13 +157,13 @@
 
     <button class="photo-arrow photo-prev"
             type="button"
-            aria-label="Photo précédente">❮</button>
+            aria-label="Photo précédente" data-i18n-aria="photo.prev">❮</button>
 
     <button class="photo-arrow photo-next"
             type="button"
-            aria-label="Photo suivante">❯</button>
+            aria-label="Photo suivante" data-i18n-aria="photo.next">❯</button>
 
-    <div class="photo-dots" aria-label="Choisir une photo">
+    <div class="photo-dots" aria-label="Choisir une photo" data-i18n-aria="photo.choose">
       <button class="photo-dot active" aria-label="Photo 1" type="button"></button>
       <button class="photo-dot" aria-label="Photo 2" type="button"></button>
       <button class="photo-dot" aria-label="Photo 3" type="button"></button>
@@ -132,7 +177,7 @@
 
 <section id="shop" class="section dark">
   <div class="section-label">SHOP</div>
-  <h2>Music &amp; merch</h2>
+  <h2 data-i18n="shop.title">Music &amp; merch</h2>
   <div class="products">
     <article class="product">
   <div class="cover cover-ep"><img src="assets/cover%20cover-ep" alt="67 EP1 cover"></div>
@@ -183,16 +228,16 @@
 <section id="contact" class="section contact">
   <div class="section-label">CONTACT</div>
   <div class="contact-grid">
-    <div><h2>Form</h2><p>Pour les demandes de bookings et les commandes merchandising :</p><a class="email" href="mailto:sixsevenbooking@gmail.com">sixsevenbooking@gmail.com</a><p class="phone">+32 (0) 495 10 38 90
+    <div><h2 data-i18n="contact.title">Form</h2><p data-i18n="contact.intro">Pour les demandes de bookings et les commandes merchandising :</p><a class="email" href="mailto:sixsevenbooking@gmail.com">sixsevenbooking@gmail.com</a><p class="phone">+32 (0) 495 10 38 90
     <form action="https://formspree.io/f/mbgdoykq" method="POST">
-      <input type="hidden" name="_subject" value="Nouvelle demande depuis le site SixseveN">
-      <input type="hidden" name="_language" value="fr">
+      <input type="hidden" name="_subject" id="contact-subject" value="Nouvelle demande depuis le site SixseveN">
+      <input type="hidden" name="_language" id="form-language" value="fr">
       <input type="text" name="_honey" style="display:none">
-      <label>Nom *<input name="name" required></label>
-      <label>Email *<input type="email" name="email" required></label>
-      <label>Sujet<input name="subject"></label>
-      <label>Message<textarea name="message" rows="6"></textarea></label>
-      <button class="button" type="submit">ENVOYER</button>
+      <label data-i18n="contact.name">Nom *<input name="name" required></label>
+      <label data-i18n="contact.email">Email *<input type="email" name="email" required></label>
+      <label data-i18n="contact.subject">Sujet<input name="subject"></label>
+      <label data-i18n="contact.message">Message<textarea name="message" rows="6"></textarea></label>
+      <button class="button" type="submit" data-i18n="contact.send">ENVOYER</button>
     </form>
   </div>
 </section>
@@ -200,7 +245,7 @@
 <section id="presse" class="section press dark">
   <div class="section-label">PRESSE</div>
   <h2>Articles</h2>
-  <div class="press-slideshow" aria-label="Articles de presse">
+  <div class="press-slideshow" aria-label="Articles de presse" data-i18n-aria="press.slideshow">
     <div class="press-slides">
       <img
         class="press-slide active"
@@ -219,18 +264,18 @@
       <img class="press-slide" src="assets/press-11.jpg" alt="Article de presse 11" loading="lazy">
     </div>
 
-    <button class="press-arrow press-prev" type="button" aria-label="Article précédent">❮</button>
-    <button class="press-arrow press-next" type="button" aria-label="Article suivant">❯</button>
+    <button class="press-arrow press-prev" type="button" aria-label="Article précédent" data-i18n-aria="press.prev">❮</button>
+    <button class="press-arrow press-next" type="button" aria-label="Article suivant" data-i18n-aria="press.next">❯</button>
 
     <div class="press-counter" aria-live="polite">1 / 11</div>
-    <div class="press-dots" aria-label="Choisir un article"></div>
+    <div class="press-dots" aria-label="Choisir un article" data-i18n-aria="press.choose"></div>
   </div>
 </section>
 
 <section class="newsletter section" id="newsletter">
   <div class="section-label">NEWSLETTER</div>
-  <h2>Abonnez-vous à notre Newsletter !</h2>
-  <p>Recevez les actualités et nouveautés de SixseveN.</p>
+  <h2 data-i18n="newsletter.title">Abonnez-vous à notre Newsletter !</h2>
+  <p data-i18n="newsletter.intro">Recevez les actualités et nouveautés de SixseveN.</p>
 
   <form
     class="newsletter-form"
@@ -255,7 +300,7 @@
       aria-label="Votre adresse e-mail"
       required>
 
-    <button class="button" type="submit">
+    <button class="button" type="submit" data-i18n="newsletter.subscribe">
       S'ABONNER
     </button>
   </form>
@@ -278,5 +323,101 @@
   <p>© <span id="year"></span> SixseveN · Belgium</p>
 </footer>
 <script src="js/script.js"></script>
+
+<script>
+(function () {
+  const translations = {
+    fr: {
+      menu: "Ouvrir le menu",
+      nav: {home:"Home", videos:"Videos", photos:"Photos", shop:"Shop", contact:"Contact", press:"Presse"},
+      "hero.watch": "WATCH THE VIDEOS",
+      "intro.title": "Une nouvelle dimension pour SixseveN.",
+      "intro.p1": "Après deux albums LP sortis en 2013 (<em>After the Crash</em>) et 2017 (<em>The new Horizon</em>), SixseveN revient avec un nouvel album, « 67 EP1 », le premier en version EP.",
+      "intro.p2": "Pour ce nouvel opus, les Hannutois ont fait appel à Didier Dessers (Rapsat, Maurane, Perry Rose, Curt Close, Loop the Loop, …) pour les arrangements, le mixage et le mastering, afin de donner une dimension supplémentaire à leurs compositions.",
+      "intro.p3": "Le style s'est orienté vers une <strong>Pop-Alternative</strong>, empreinte d'Electro, de Disco, de Rock et de Funk, tout en gardant l'unité et la signature SixseveN.",
+      "photos.title": "SixseveN en images",
+      "photo.slideshow": "Diaporama SixseveN",
+      "photo.prev": "Photo précédente", "photo.next": "Photo suivante", "photo.choose": "Choisir une photo",
+      "shop.title": "Music & merch", "shop.order": "COMMANDER",
+      "contact.title": "Form", "contact.intro": "Pour les demandes de bookings et les commandes merchandising :",
+      "contact.name": "Nom *", "contact.email": "Email *", "contact.subject": "Sujet", "contact.message": "Message", "contact.send": "ENVOYER",
+      "press.slideshow": "Articles de presse", "press.prev": "Article précédent", "press.next": "Article suivant", "press.choose": "Choisir un article",
+      "newsletter.title": "Abonnez-vous à notre Newsletter !", "newsletter.intro": "Recevez les actualités et nouveautés de SixseveN.",
+      "newsletter.name": "Nom + Prénom", "newsletter.nameAria": "Nom et prénom", "newsletter.email": "Votre adresse e-mail", "newsletter.emailAria": "Votre adresse e-mail", "newsletter.subscribe": "S'ABONNER"
+    },
+    en: {
+      menu: "Open menu",
+      nav: {home:"Home", videos:"Videos", photos:"Photos", shop:"Shop", contact:"Contact", press:"Press"},
+      "hero.watch": "WATCH THE VIDEOS",
+      "intro.title": "A new dimension for SixseveN.",
+      "intro.p1": "After two LP albums released in 2013 (<em>After the Crash</em>) and 2017 (<em>The new Horizon</em>), SixseveN returns with a new album, “67 EP1”, their first release in EP format.",
+      "intro.p2": "For this new release, the band from Hannut called on Didier Dessers (Rapsat, Maurane, Perry Rose, Curt Close, Loop the Loop, …) for the arrangements, mixing and mastering, giving their compositions an additional dimension.",
+      "intro.p3": "Their sound has evolved towards <strong>Alternative Pop</strong>, infused with Electro, Disco, Rock and Funk, while preserving the unity and distinctive SixseveN signature.",
+      "photos.title": "SixseveN in pictures",
+      "photo.slideshow": "SixseveN slideshow",
+      "photo.prev": "Previous photo", "photo.next": "Next photo", "photo.choose": "Choose a photo",
+      "shop.title": "Music & merch", "shop.order": "ORDER",
+      "contact.title": "Form", "contact.intro": "For booking requests and merchandise orders:",
+      "contact.name": "Name *", "contact.email": "Email *", "contact.subject": "Subject", "contact.message": "Message", "contact.send": "SEND",
+      "press.slideshow": "Press articles", "press.prev": "Previous article", "press.next": "Next article", "press.choose": "Choose an article",
+      "newsletter.title": "Subscribe to our Newsletter!", "newsletter.intro": "Receive SixseveN news and updates.",
+      "newsletter.name": "First + Last name", "newsletter.nameAria": "First and last name", "newsletter.email": "Your email address", "newsletter.emailAria": "Your email address", "newsletter.subscribe": "SUBSCRIBE"
+    }
+  };
+
+  function get(obj, path) {
+    return path.split(".").reduce((o, k) => o && o[k], obj);
+  }
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const value = get(t, el.dataset.i18n);
+      if (value !== undefined) el.innerHTML = value;
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+      const value = get(t, el.dataset.i18nAria);
+      if (value !== undefined) el.setAttribute("aria-label", value);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      const value = get(t, el.dataset.i18nPlaceholder);
+      if (value !== undefined) el.setAttribute("placeholder", value);
+    });
+
+    const subject = document.getElementById("contact-subject");
+    const formLanguage = document.getElementById("form-language");
+    const newsletterSubject = document.getElementById("newsletter-subject");
+
+    if (subject) subject.value = lang === "en"
+      ? "New request from the SixseveN website"
+      : "Nouvelle demande depuis le site SixseveN";
+    if (formLanguage) formLanguage.value = lang;
+    if (newsletterSubject) newsletterSubject.value = lang === "en"
+      ? "New SixseveN newsletter subscription"
+      : "Nouvelle inscription à la newsletter SixseveN";
+
+    document.querySelectorAll(".lang-button").forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    try { localStorage.setItem("sixseven-language", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang-button").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+
+  let saved = "fr";
+  try { saved = localStorage.getItem("sixseven-language") || "fr"; } catch (e) {}
+  setLanguage(saved);
+})();
+</script>
+
 </body>
 </html>
