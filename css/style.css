@@ -113,3 +113,10 @@ footer{background:#000;color:#aaa;padding:45px 6vw;display:flex;align-items:cent
 @media (prefers-reduced-motion: reduce) {
   .press-slide.active {animation: none;}
 }
+@media (min-width: 801px) {
+  #main-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
